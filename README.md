@@ -1,34 +1,34 @@
-# 19AI308-Object-Oriented-Programming-using-CSharp--Ex7---Hierarchical-Inheritance
+# 19AI308-Object-Oriented-Programming-using-CSharp-Exp-9---Interface-with-abstract-methods
 
 ## AIM :
 
-To write a C# program to implement heirarchical inheritance for the following problem statement:  All the vehicles need Tyres on their wheels. 
-So, the manufacturer designs their vehicle as they want and import Tyre from its base class and fit it into Wheels. 
-They don’t need to design Tyre all the time. Once they designed the model and use it various times. 
-Aim is to create a Scooter and Car vehicle where the Tyre is being inherited from vehicle class.
+To develop a small bank application by declaring deposit() and withdrawal() as an abstract methods in the interface. 
 
 ## ALGORITHM :
 
-### Step 1 :
+### STEP 1 :
 
-Define a base class 'Vehicle' with a method 'tyre' to describe tyres.
+Interface Bank: defines deposit and withdraw methods.
 
-### Step 2 :
+### STEP 2 :
 
-Create a 'Scooter' class inheriting 'Vehicle', with a method 'Display' and 'tyres'.
+Program class: implements Bank, manages deposit and withdrawal operations.
 
-### Step 3 :
+### STEP 3 :
 
-Implement 'Display' to show class type and call base 'tyre'.
+Constructor: prompts user for deposit or withdrawal choice.
 
-### Step 4 :
+### STEP 4 :
 
-Similarly, make a 'Car' class inheriting 'Vehicle', with a 'Display' method.
+deposit method: adds entered amount to balance, displays updated balance.
 
-### Step 5 :
+### STEP 5 :
 
-Instantiate Car' and 'Scooter', call 'Display' with respective tyre counts.
+withdraw method: subtracts entered amount from balance, displays updated balance.
 
+### STEP 6 :
+
+Main method: creates Program object, initiates banking operations based on user input.
 
 ## PROGRAM :
 
@@ -37,54 +37,59 @@ Instantiate Car' and 'Scooter', call 'Display' with respective tyre counts.
 
 ```
 using System;
-
-public class Vechicle
+using System.Transactions;
+public interface Bank
 {
-    public void tyre()
+    void deposit();
+    void withdraw();
+}
+public class Program:Bank
+{
+    public int amount,balance=5000;
+    public Program()
     {
-        Console.WriteLine("It is a tubeless tyre");
+        Console.WriteLine("Enter your Choice:\n1.Deposit\n2.WithDraw");
+        int opt;
+        opt = Convert.ToInt32(Console.ReadLine());
+        if (opt == 1)
+            deposit();
+        else if (opt == 2)
+            withdraw();
+        else
+        {
+            Console.WriteLine("Enter a valid input");
+        }
+    }
+    public void deposit()
+    {
+        Console.WriteLine("Enter the amount to deposit");
+        amount = Convert.ToInt32(Console.ReadLine());
+        balance += amount;
+        Console.WriteLine("The Balance is " + balance);
+    }
+    public void withdraw()
+    {
+        Console.WriteLine("Enter the amount to withdraw");
+        amount = Convert.ToInt32(Console.ReadLine());
+        balance -= amount;
+        Console.WriteLine("The Balance is " + balance);
     }
 }
-
-class Scooter : Vechicle
+public class Exp9
 {
-    public  void display() 
+    public static void Main(string[] args)
     {
-        base.tyre();
-        Console.WriteLine("It is a scooter class");
-    }
-}
-
-class Car : Vechicle
-{
-    public  void display() 
-    {
-        base.tyre();
-        Console.WriteLine("It is a car class");
-    }
-}
-
-class Program
-{
-    static void Main()
-    {
-        Scooter scooter = new Scooter();
-        Car car = new Car();
-        
-        
-        Console.WriteLine("Scooter started:");
-        scooter.display();
-        
-        Console.WriteLine("\nCar started:");
-        car.display();
+        Program n = new Program();
     }
 }
 ```
 
 ## OUTPUT :
 
-![Screenshot 2024-04-22 221058](https://github.com/22008686/19AI308-Object-Oriented-Programming-using-CSharp--Ex7---Hierarchical-Inheritance/assets/118916413/32f6457b-12a9-4871-9b33-1f9659868a6c)
+![Screenshot 2024-05-06 205502](https://github.com/22008686/19AI308-Object-Oriented-Programming-using-CSharp-Exp-9---Interface-with-abstract-methods/assets/118916413/9fa7d404-6c6d-4c26-935f-105c4712d9fe)
+
+![Screenshot 2024-05-06 205557](https://github.com/22008686/19AI308-Object-Oriented-Programming-using-CSharp-Exp-9---Interface-with-abstract-methods/assets/118916413/eb3c1a74-0c84-4372-b79d-a553a81ea640)
 
 ## RESULT :
 
-Thus the program has been executed successfully.
+Thus, a C# program has created for developing a small bank application by declaring deposit() and withdraw() as an abstract methods in the interface and it is executed and verified successfully.
