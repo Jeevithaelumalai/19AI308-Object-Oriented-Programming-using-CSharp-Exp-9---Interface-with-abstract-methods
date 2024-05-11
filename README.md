@@ -85,8 +85,8 @@ public class Exp9
 ```
 
 ## OUTPUT :
+![image](https://github.com/Jeevithaelumalai/19AI308-Object-Oriented-Programming-using-CSharp-Exp-9---Interface-with-abstract-methods/assets/118708245/4d2d0451-a637-4181-9f37-c49382215a5f)
 
-![image](https://github.com/Jeevithaelumalai/19AI308-Object-Oriented-Programming-using-CSharp-Exp-9---Interface-with-abstract-methods/assets/118708245/66983bd2-7353-46f9-b1e8-06acac69b676)
 
 ## RESULT :
 
